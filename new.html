@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<head>
+	<link href='https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz|Open+Sans:400,600,700|Oswald|Electrolize' rel='stylesheet' type='text/css'>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	
+	<title>Car Dealer | New</title>
+	
+	<meta name="description" content="">
+	<meta name="author" content="">
+	
+	<link rel="shortcut" href="images/favicon.ico" />
+	<link rel="stylesheet" href="css/style.css" media="screen" />
+	<link rel="stylesheet" href="css/skeleton.css" media="screen" />
+	<link rel="stylesheet" href="fancybox/jquery.fancybox.css" media="screen" />
+	<script type="text/javascript" src="js/modernizr.custom.js"></script>
+	
+	<!-- Adds JQuery -->
+    <script src="js/jquery-1.7.2.min.js"></script>
+    
+    <script>
+    /*global $*/
+    $(document).ready( ()=> {
+    	$('#contactform').submit( ()=> {
+	    	var name = $('#name').val();
+	        var address = $('#address').val();
+	        var city = $('#city').val();
+	        var phone = $('#phone').val();
+	        var email = $('#email').val();
+	        var make = $('#make').val();
+	        var model = $('#model').val();
+	        var year = $('#year').val();
+	    	 Promise.resolve()
+	         .then(function(){
+	            return $.post('/server/AddNew.php', {name: name, address: address, city: city, phone: phone, email: email, make: make, model: model, year: year});
+	          })
+	          .then(function(response){
+		          window.location.replace('/car.html?id=' + response[0]["MAX(ID)"]);
+	        })
+    	})
+    });
+    </script>
+</head>
+<body class="menu-1 h-style-1 text-1">
+
+<div class="wrap">
+	
+	<!-- - - - - - - - - - - - - - Header - - - - - - - - - - - - - - - - -->	
+	
+	<header id="header" class="clearfix">
+		
+		<a href="index.html" id="logo"><img src="images/logo.png" alt="Car Dealer"></a>
+		
+		<div class="widget-container widget_search">
+			
+			<span class="call"><span>+1 519</span> 746-3353</span><br />
+			
+			<span class="adds">20 Ottawa St N, Kitchener, ON, N2H 0A4</span>
+
+		</div><!--/ .widget-container-->	
+		
+	</header><!--/ #header-->
+	
+	<!-- - - - - - - - - - - - - - end Header - - - - - - - - - - - - - - - - -->
+	
+	
+	<div class="main">
+
+		<!-- - - - - - - - - - - - - - - Container - - - - - - - - - - - - - - - - -->	
+
+		<section class="container clearfix">
+			
+			<div class="twelve columns">
+
+				<div id="contact">
+
+					<h3 class="widget-title">Contact Information</h3>
+
+					<form onSubmit="return false;" class="contact-form" id="contactform">
+
+						<p class="input-block">
+							<label for="name">Seller name</label>
+							<input type="text" name="name" id="name" required/>
+						</p>
+
+						<p class="input-block">
+							<label for="address">Address</label>
+							<input type="text" name="address" id="address" required/>
+						</p>
+
+						<p class="input-block">
+							<label for="city">City</label>
+							<input type="text" name="city" id="city" required/>
+						</p>
+						
+						<p class="input-block">
+							<label for="phone">Phone number</label>
+							<input type="text" name="phone" id="phone" pattern="[0-9-()+]{3,20}" required/>
+						</p>
+						
+						<p class="input-block">
+							<label for="email">Email address</label>
+							<input type="text" name="email" id="email" pattern="^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$" required/>
+						</p>
+
+						<p class="input-block">
+							<label for="make">Vehicle make</label>
+							<input type="text" name="make" id="make" required/>
+						</p>
+						
+						<p class="input-block">
+							<label for="model">Vehicle model</label>
+							<input type="text" name="model" id="model" required/>
+						</p>
+						
+						<p class="input-block">
+							<label for="year">Vehicle year</label>
+							<input type="text" name="year" id="year" pattern="[0-9 -()+]+$" required/>
+						</p>
+						
+						<p class="input-block">
+							<label>&nbsp;</label>
+							<button class="button orange" type="submit" id="submit">Submit</button>
+						</p>
+						
+					</form><!--/ .contact-form-->			   
+
+				</div><!--/ #contact-->
+					
+			</div><!--/ .twelve .columns-->
+			
+
+
+		</section><!--/.container -->
+
+		<!-- - - - - - - - - - - - - end Container - - - - - - - - - - - - - - - - -->			
+		
+	</div><!--/ .main-->
+
+	
+	<!-- - - - - - - - - - - - - - - Footer - - - - - - - - - - - - - - - - -->	
+	
+	<footer id="footer" class="container clearfix">
+		
+		<section class="container clearfix">
+			
+			<div class="four columns">
+
+				<div class="widget-container widget_text">
+
+					<h3 class="widget-title">About Us</h3>
+
+					<div class="textwidget">
+
+						<p class="white">
+							We are a dealership that is proud to offer you superior customer service and unbeatable prices on used cars, trucks and SUVS. We offer hundreds of quality models and our amicable sales associates will help you choose your perfect fit.
+						</p>	
+
+						<p>
+							Come visit us at any one of our amazing locations in Kitchener or Cambridge and experience all that we have to offer first-hand!
+						</p>
+
+					</div><!--/ .textwidget-->
+
+				</div><!--/ .widget-container-->	
+
+			</div><!--/ .four .columns-->
+
+			<div class="four columns">
+
+				<div class="widget-container widget_text">
+
+					<h3 class="widget-title">Our Hours</h3>
+
+					<div class="textwidget">
+
+						<ul class="hours">
+
+							<li>Monday <span>8 am to 7 pm</span></li>
+							<li>Tuesday <span>8 am to 9 pm</span></li>
+							<li>Wednesday <span>8 am to 9 pm</span></li>
+							<li>Thursday <span>8 am to 9 pm</span></li>
+							<li>Friday <span>8 am to 9 pm</span></li>
+							<li>Saturday <span>8 am to 9 pm</span></li>
+							<li>Sunday <span>Closed</span></li>
+
+						</ul><!--/ .hours-->
+
+					</div><!--/ .textwidget-->
+
+				</div><!--/ .widget-container-->
+
+			</div><!--/ .four .columns-->
+
+			<div class="four columns">
+
+				<div class="widget-container widget_contacts">
+
+					<h3 class="widget-title">Our Contacts</h3>			
+
+					<ul class="our-contacts">
+
+						<li class="address">
+							<b>Address Info:</b>
+							<p>20 Ottawa St N, Kitchener, ON, N2H 0A4</p>
+						</li>
+						<li class="phone">
+							<b>Phone:</b>&nbsp;<span>+1 (519) 746-3353</span> <br />
+							<b>FAX:</b>&nbsp;<span>+1 (877) 363-6475</span>
+						</li>
+						<li>
+							<b>Email: <a href="mailto:assignment4@cardealer.com">assignment4@cardealer.com</a></b>
+						</li>
+						<li>
+							<ul class="social-icons clearfix">
+								<li class="twitter"><a title="twitter" href="#">Twitter</a></li>
+								<li class="facebook"><a title="facebook" href="#">Facebook</a></li>
+								<li class="rss"><a title="rss" href="#">Rss</a></li>
+							</ul><!--/ .social-icons-->
+						</li>
+
+					</ul><!--/ .our-contacts-->
+
+				</div><!--/ .widget-container-->
+
+			</div><!--/ .four .columns-->
+
+			<div class="four columns">
+
+				<div id="gMap"></div>
+
+			</div><!--/ .four .columns-->
+			
+			<div class="adjective clearfix">
+
+				<p class="copyright">Copyright &copy; 2018. Quality Assurance. All rights reserved</p>
+
+				<p class="developed">developed by <a href="http://webtemplatemasters.com" target="_blank">Daniel & Winson</a></p>
+				
+			</div><!--/ .adjective-->
+
+		</section><!--/ .container-->
+		
+	</footer><!--/ #footer-->
+	
+	<!-- - - - - - - - - - - - - - - end Footer - - - - - - - - - - - - - - - - -->		
+</body>
+</html>
