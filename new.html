@@ -20,8 +20,10 @@
     
     <script>
     /*global $*/
+    
     $(document).ready( ()=> {
     	$('#contactform').submit( ()=> {
+    		
     		$('#errorName').text("");
     		$('#errorAddress').text("");
 	    	$('#errorCity').text("");
@@ -45,64 +47,67 @@
 	        if(name == "")
 	        {
 	        	validation = false;
-	        	$('#errorName').css('visibility', 'visible');
 	        	$('#errorName').text("Seller name is required");
 	        }
 	        
 	        if(address == "")
 	        {
 	        	validation = false;
-	        	$('#errorAddress').css('visibility', 'visible');
 	        	$('#errorAddress').text("Address is required");
 	        }
 	        
 	        if(city == "")
 	        {
 	        	validation = false;
-	        	$('#errorCity').css('visibility', 'visible');
 	        	$('#errorCity').text("City is required");
 	        }
 	        
-	        
+	       
+
 	        if(phone == "")
 	        {
 	        	validation = false;
-	        	$('#errorPhoneNumber').css('visibility', 'visible');
 	        	$('#errorPhoneNumber').text("Phone No is required");
 	        }
+	        else if (!(ValidatePhoneNumber(phone)))
+	        {
+	        	validation = false;
+	        	$('#errorPhoneNumber').text("Phone No is incorrect format");
+	        }
 	        
-	         
 	        if(email == "")
 	        {
 	        	validation = false;
-	        	$('#errorEmailAddress').css('visibility', 'visible');
 	        	$('#errorEmailAddress').text("Email is required");
 	        }
-	        
-	      
+	        else if (validateEmail(email)){
+	        	validation = false;
+	        	$('#errorEmailAddress').text("Email is invalid format (example@email.com)");
+	        }
+	       
 	        if(make == "")
 	        {
 	        	validation = false;
-	        	$('#errorVehicleMake').css('visibility', 'visible');
 	        	$('#errorVehicleMake').text("Vehicle make is required");
 	        }
-	        
-	                //
+	        	                
 	        if(model == "")
 	        {
 	        	validation = false;
-	        	$('#errorVehicleModel').css('visibility', 'visible');
 	        	$('#errorVehicleModel').text("Vehicle models is required");
 	        }
+	       
 	        
 	        if(year == "")
 	        {
 	        	validation = false;
-	        	$('#errorVehicleYear').css('visibility', 'visible');
 	        	$('#errorVehicleYear').text("Vehicle year is required");
 	        }
-	   //     errorCity
-	        
+	        else if (isNaN(year))
+	        {
+	        	validation = false;
+	        	$('#errorVehicleYear').text("Vehicle year must be a number");
+	        }
 	        
 	        if(validation)
 	        {
@@ -116,6 +121,29 @@
 	        }
     	})
     });
+    
+	
+	
+	function validateEmail(sEmail) {
+		var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+		if (filter.test(sEmail)) {
+    		 return true;
+		}
+		else {
+        	return false;
+    	}
+	}
+	
+
+function ValidatePhoneNumber(phonenumber) {
+    if (phonenumber.match(/^\d{10}/)) {
+         return true;
+    } 
+  
+    return false;
+}
+
+	
     </script>
 </head>
 <body class="menu-1 h-style-1 text-1">
@@ -155,7 +183,24 @@
 
 					<form onSubmit="return false;" class="contact-form" id="contactform">
 						
-	                
+	                	<p>
+							<label id="errorName" style="color:red; "></label>
+						<br>
+						 	<label id="errorAddress" style="color:red; "></label>
+						<br>
+						 	<label id="errorCity" style="color:red; "></label>
+						 <br>
+						 
+						 	<label id="errorPhoneNumber" style="color:red; "></label>
+						 <br>
+						 	<label id="errorEmailAddress" style="color:red; "></label>
+						 <br>
+						 	<label id="errorVehicleMake" style="color:red; "></label>
+						<br>
+						 	<label id="errorVehicleModel" style="color:red; "></label>
+						<br>
+						 	<label id="errorVehicleYear" style="color:red; "></label>
+						 </p>
 
 						<p class="input-block">
 							<label for="name">Seller name</label>
@@ -202,24 +247,7 @@
 							<button class="button orange" type="submit" id="submit">Submit</button>
 						</p>
 						
-						<p>
-							<label id="errorName" style="color:red; visibility: hidden">Seller name is required</label>
-						<br>
-						 	<label id="errorAddress" style="color:red; visibility: hidden">Address is required</label>
-						<br>
-						 	<label id="errorCity" style="color:red; visibility: hidden">City is required</label>
-						 <br>
-						 
-						 	<label id="errorPhoneNumber" style="color:red; visibility: hidden">Phone No is required</label>
-						 <br>
-						 	<label id="errorEmailAddress" style="color:red; visibility: hidden">Email is required</label>
-						 <br>
-						 	<label id="errorVehicleMake" style="color:red; visibility: hidden">Vehicle make is required</label>
-						<br>
-						 	<label id="errorVehicleModel" style="color:red; visibility: hidden">Vehicle models is required</label>
-						<br>
-						 	<label id="errorVehicleYear" style="color:red; visibility: hidden">Vehicle year is required</label>
-						 </p>
+				
 						
 					</form><!--/ .contact-form-->			   
 
