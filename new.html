@@ -95,12 +95,12 @@
 						
 						<p class="input-block">
 							<label for="phone">Phone number</label>
-							<input type="text" name="phone" id="phone" pattern="[0-9-()+]{3,20}" required/>
+							<input type="text" name="phone" id="phone" pattern="^\(?\d{3}(\)|-)?\s?\d{3}-\d{4}$" oninvalid="this.setCustomValidity('Must be in this format: 123-123-1234 or (123) 123-1234')" required/>
 						</p>
 						
 						<p class="input-block">
 							<label for="email">Email address</label>
-							<input type="text" name="email" id="email" pattern="^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$" required/>
+							<input type="text" name="email" id="email" pattern="^[^@\s]+@[^@\s]+\.[^@\s]+$" oninvalid="this.setCustomValidity('Must be in this format: a@a.a" required/>
 						</p>
 
 						<p class="input-block">
@@ -115,7 +115,7 @@
 						
 						<p class="input-block">
 							<label for="year">Vehicle year</label>
-							<input type="text" name="year" id="year" pattern="[0-9 -()+]+$" required/>
+							<input type="text" name="year" id="year" pattern="^\d+$" oninvalid="this.setCustomValidity('Must be a number!')" required/>
 						</p>
 						
 						<p class="input-block">
