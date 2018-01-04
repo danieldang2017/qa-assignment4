@@ -3,3 +3,23 @@ Stack trace:
 #0 /home/ubuntu/workspace/server/SearchCar.php(7): PDOStatement->execute()
 #1 {main}
   thrown in /home/ubuntu/workspace/server/SearchCar.php on line 7
+[04-Jan-2018 02:29:38 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'c9.Info' doesn't exist' in /home/ubuntu/workspace/server/GetAllCars.php:5
+Stack trace:
+#0 /home/ubuntu/workspace/server/GetAllCars.php(5): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ubuntu/workspace/server/GetAllCars.php on line 5
+[04-Jan-2018 02:29:50 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'c9.Info' doesn't exist' in /home/ubuntu/workspace/server/GetAllCars.php:5
+Stack trace:
+#0 /home/ubuntu/workspace/server/GetAllCars.php(5): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ubuntu/workspace/server/GetAllCars.php on line 5
+[04-Jan-2018 02:32:52 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'c9.Info' doesn't exist' in /home/ubuntu/workspace/server/AddNew.php:20
+Stack trace:
+#0 /home/ubuntu/workspace/server/AddNew.php(20): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ubuntu/workspace/server/AddNew.php on line 20
+[04-Jan-2018 02:32:52 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'c9.Info' doesn't exist' in /home/ubuntu/workspace/server/SearchCar.php:7
+Stack trace:
+#0 /home/ubuntu/workspace/server/SearchCar.php(7): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ubuntu/workspace/server/SearchCar.php on line 7
