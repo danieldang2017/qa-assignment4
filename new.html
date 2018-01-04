@@ -80,7 +80,7 @@
 	        	validation = false;
 	        	$('#errorEmailAddress').text("Email is required");
 	        }
-	        else if (validateEmail(email)){
+	        else if (!validateEmail(email)){
 	        	validation = false;
 	        	$('#errorEmailAddress').text("Email is invalid format (example@email.com)");
 	        }
@@ -139,7 +139,6 @@ function ValidatePhoneNumber(phonenumber) {
     if (phonenumber.match(/^\d{10}/)) {
          return true;
     } 
-  
     return false;
 }
 
